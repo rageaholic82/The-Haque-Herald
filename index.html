@@ -10,6 +10,7 @@
             --sand: #fdf6e3;
             --ocean: #2a9d8f;
             --sunset: #e76f51;
+            --hibiscus: #ef476f;
             --warm-black: #264653;
             --white: #ffffff;
         }
@@ -23,134 +24,153 @@
             line-height: 1.6;
         }
 
-        /* Hero Section */
         header {
-            background: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
                         url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1500&q=80');
             background-size: cover;
             background-position: center;
-            height: 60vh;
+            height: 50vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: var(--white);
-            padding: 20px;
         }
 
         .hero-text h1 {
             font-family: 'Lora', serif;
-            font-size: 3.5rem;
-            margin-bottom: 10px;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: clamp(2.5rem, 8vw, 4rem);
+            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
         }
 
-        /* Main Content */
         .container {
-            max-width: 1000px;
-            margin: -50px auto 50px;
+            max-width: 900px;
+            margin: -40px auto 50px;
             background: var(--white);
             padding: 40px;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(38, 70, 83, 0.1);
         }
 
-        .intro {
-            text-align: center;
-            margin-bottom: 50px;
-        }
-
-        .intro h2 { font-family: 'Lora', serif; color: var(--ocean); font-size: 2rem; }
+        .intro { text-align: center; margin-bottom: 60px; }
+        .intro h2 { font-family: 'Lora', serif; color: var(--ocean); font-size: 2.2rem; margin-bottom: 15px; }
 
         /* Memory Grid */
         .memory-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            margin-bottom: 80px;
         }
 
         .card {
             background: #fff;
-            border-radius: 10px;
+            border-radius: 12px;
             overflow: hidden;
+            border: 1px solid #f1f1f1;
             transition: transform 0.3s ease;
-            border: 1px solid #eee;
         }
-
-        .card:hover { transform: translateY(-5px); }
-
-        .card img, .card video {
-            width: 100%;
-            height: 250px;
-            object-fit: cover;
-            display: block;
-        }
-
+        .card:hover { transform: scale(1.02); }
+        .card img { width: 100%; height: 280px; object-fit: cover; }
         .card-content { padding: 20px; }
-        .card-content h3 { color: var(--sunset); margin-bottom: 10px; }
-        .card-content p { font-size: 0.95rem; color: #555; }
+        .card-content h3 { color: var(--sunset); margin-bottom: 8px; font-family: 'Lora', serif; }
 
-        footer {
-            text-align: center;
-            padding: 40px;
-            font-size: 0.9rem;
-            color: var(--ocean);
+        /* Guestbook Section */
+        .guestbook {
+            background: #fcf8f2;
+            padding: 30px;
+            border-radius: 15px;
+            border: 2px dashed var(--ocean);
         }
+        .guestbook h2 { 
+            font-family: 'Lora', serif; 
+            text-align: center; 
+            color: var(--warm-black);
+            margin-bottom: 20px;
+        }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea {
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: inherit;
+        }
+        button {
+            background: var(--ocean);
+            color: white;
+            padding: 15px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        button:hover { background: var(--sunset); }
 
-        /* Responsive */
-        @media (max-width: 600px) {
-            .hero-text h1 { font-size: 2.2rem; }
-            .container { margin-top: 20px; padding: 20px; }
-        }
+        footer { text-align: center; padding-bottom: 50px; color: #888; font-size: 0.9rem; }
     </style>
 </head>
 <body>
 
     <header>
         <div class="hero-text">
-            <h1>Aloha 2024</h1>
-            <p>Our Family's End of Year Journey</p>
+            <h1>Aloha from Our Family</h1>
+            <p>2024 Memories & Milestones</p>
         </div>
     </header>
 
     <div class="container">
         <section class="intro">
-            <h2>The Highlights</h2>
-            <p>Gathering the moments that made this year special. From the North Shore sunsets to the backyard BBQs, here is our 2024 diary.</p>
+            <h2>E Komo Mai</h2>
+            <p>Welcome to our digital scrapbook. This year was full of island breeze, family growth, and plenty of adventure. We're so glad you're here to share it with us.</p>
         </section>
 
         <main class="memory-grid">
             <article class="card">
-                <img src="https://images.unsplash.com/photo-1505852679233-d9fd70aff56d?auto=format&fit=crop&w=800&q=80" alt="Hiking">
+                <img src="PHOTO_URL_HERE" alt="Family Photo">
                 <div class="card-content">
-                    <h3>Summer Trails</h3>
-                    <p>Finally made it to the top of the ridge this July! The kids were troopers despite the heat.</p>
+                    <h3>Sunset at Hanalei</h3>
+                    <p>One of our favorite evenings this year. The light was perfect and the kids actually sat still for five minutes!</p>
                 </div>
             </article>
 
             <article class="card">
-                <video controls poster="https://images.unsplash.com/photo-1520116468816-95b69f847357?auto=format&fit=crop&w=800&q=80">
-                    <source src="your-video-link.mp4" type="video/mp4">
-                    Your browser does not support the video tag.
-                </video>
+                <img src="PHOTO_URL_HERE" alt="Hiking">
                 <div class="card-content">
-                    <h3>First Surf Lesson</h3>
-                    <p>Short clip of Keiki catching their very first wave. Pure joy!</p>
+                    <h3>Backyard BBQ</h3>
+                    <p>Nothing beats a Sunday afternoon with the smoker going and cousins running through the sprinklers.</p>
                 </div>
             </article>
+        </main>
 
-            </main>
+        <section class="guestbook">
+            <h2>Leave a Message in our Guestbook</h2>
+            <p style="text-align: center; margin-bottom: 20px;">We'd love to hear from you! Leave a note for the family below.</p>
+            
+            <form id="contact-form">
+                <input type="text" name="name" placeholder="Your Name" required>
+                <textarea name="message" rows="4" placeholder="Write your aloha here..." required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+            <div id="status" style="margin-top:15px; text-align:center; display:none; color: var(--ocean);">Mahalo! Your message has been sent.</div>
+        </section>
     </div>
 
     <footer>
-        <p>Made with Aloha &bull; The Smith Family 2024</p>
+        <p>Made with &hearts; in Hawai'i &bull; 2024 Smith Family Updates</p>
     </footer>
 
     <script>
-        // Simple script to log a welcome message
-        console.log("Welcome to our Family Blog!");
-        
-        // You can add logic here to dynamically load more posts later
+        // Simple UI feedback for the form
+        const form = document.getElementById('contact-form');
+        const status = document.getElementById('status');
+
+        form.onsubmit = e => {
+            e.preventDefault();
+            form.style.display = 'none';
+            status.style.display = 'block';
+            // In a real setup, you'd link this to Formspree or a backend here.
+        };
     </script>
 </body>
 </html>
