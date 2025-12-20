@@ -7,7 +7,7 @@ If we had to pick one moment that defined the year, it was our family gathering 
 
 ![The Family at Sunset](images/mauna-kea-1.jpg)
 
-<video width="100%" controls poster="images/mauna-kea-1.jpg" style="border-radius: 8px;">
+<video width="100%" controls poster="The-Haque-Herald/images/mauna-kea-1.jpg" style="border-radius: 8px;">
   <source src="images/video-1.mp4" type="video/mp4">
   Your browser does not support the video tag.
 </video>
@@ -22,4 +22,5 @@ If we had to pick one moment that defined the year, it was our family gathering 
 Mahalo to all our friends and family for being part of our journey this year. We are looking forward to more sunsets, more laughter, and more adventures in 2025.
 
 With much Aloha,
+
 *The Family*
