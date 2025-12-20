@@ -5,7 +5,7 @@ As the sun sets on another year here in the islands, we wanted to take a moment 
 ## Our Favorite Memory
 If we had to pick one moment that defined the year, it was our family gathering at the beach. There’s nothing quite like the sound of the waves and the feeling of sand between your toes to remind us of what's important.
 
-![The Family at Sunset]("images/mauna-kea-1.jpg")
+![The Family at Sunset]('images/mauna-kea-1.jpg')
 
 <video width="100%" controls muted playsinline style="border-radius: 8px;">
   <source src="images/video-1e.mp4" type="video/mp4">
@@ -23,6 +23,7 @@ Mahalo to all our friends and family for being part of our journey this year. We
 With much Aloha,
 
 *The Family*
+
 
 
 
