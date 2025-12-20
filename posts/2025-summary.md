@@ -7,9 +7,8 @@ If we had to pick one moment that defined the year, it was our family gathering 
 
 ![The Family at Sunset](The-Haque-Herald/images/mauna-kea-1.jpg)
 
-<video width="100%" controls poster="The-Haque-Herald/images/mauna-kea-1.jpg" style="border-radius: 8px;">
-  <source src="The-Haque-Herald/images/video-1a.mov" type="video/mov">
-  Your browser does not support the video tag.
+<video width="100%" controls muted playsinline style="border-radius: 8px;">
+  <source src="images/video-1.mp4" type="video/mp4">
 </video>
 
 
@@ -24,6 +23,7 @@ Mahalo to all our friends and family for being part of our journey this year. We
 With much Aloha,
 
 *The Family*
+
 
 
 
