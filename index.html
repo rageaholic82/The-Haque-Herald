@@ -5,95 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Our Ohana Updates | 2025 Year in Review</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:italic,wght@0,400;1,700&display=swap" rel="stylesheet">
-    
     <style>
         :root {
-            --sand: #fdf6e3;
-            --ocean: #2a9d8f;
-            --sunset: #e76f51;
-            --white: #ffffff;
-            --warm-black: #264653;
+            --sand: #fdf6e3; --ocean: #2a9d8f; --sunset: #e76f51;
+            --white: #ffffff; --warm-black: #264653;
         }
-
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
-        body {
-            font-family: 'Quicksand', sans-serif;
-            background-color: var(--sand);
-            color: var(--warm-black);
-            line-height: 1.6;
-        }
-
-        /* Hero Header */
+        body { font-family: 'Quicksand', sans-serif; background-color: var(--sand); color: var(--warm-black); line-height: 1.6; }
+        
         header {
-            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), 
-                        url('images/ohana-1b.jpg'); /* Ensure this file exists in /images/ */
-            background-size: cover;
-            background-position: center;
-            height: 50vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            text-align: center;
-            color: var(--white);
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/ohana-1b.jpg');
+            background-size: cover; background-position: center; height: 50vh;
+            display: flex; align-items: top; padding: 30px; justify-content: center; text-align: center; color: var(--white);
         }
+        .hero-text h1 { font-family: 'Lora', serif; font-size: clamp(2.5rem, 8vw, 4rem); text-shadow: 2px 2px 8px rgba(0,0,0,0.4); }
 
-        .hero-text h1 {
-            font-family: 'Lora', serif;
-            font-size: clamp(2.5rem, 8vw, 4rem);
-            text-shadow: 2px 2px 8px rgba(0,0,0,0.4);
-        }
+        .container { max-width: 900px; margin: -40px auto 50px; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(38, 70, 83, 0.1); }
+        
+        .memory-grid { display: flex; flex-direction: column; gap: 40px; margin: 30px 0; }
+        .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #f1f1f1; }
+        .card img, .card video { width: 100%; border-radius: 8px; margin: 15px 0; }
+        .card h1 { font-family: 'Lora', serif; color: var(--ocean); }
 
-        .container {
-            max-width: 900px;
-            margin: -40px auto 50px;
-            background: var(--white);
-            padding: 40px;
-            border-radius: 20px;
-            box-shadow: 0 15px 35px rgba(38, 70, 83, 0.1);
-        }
-
-        /* Blog Post Cards */
-        .memory-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 40px;
-            margin-top: 30px;
-        }
-
-        .card {
-            background: #fff;
-            padding: 25px;
-            border-radius: 12px;
-            border: 1px solid #f1f1f1;
-            transition: transform 0.3s ease;
-        }
-
-        /* Style for images inside your Markdown posts */
-        .card img {
-            width: 100%;
-            border-radius: 8px;
-            margin: 15px 0;
-        }
-
-        .card h1, .card h2 { font-family: 'Lora', serif; color: var(--ocean); margin-bottom: 10px; }
-        .card p { margin-bottom: 10px; }
-
-        /* Back to Top Button */
-        #backToTop {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            background: var(--sunset);
-            color: white;
-            border: none;
-            padding: 10px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            display: none; /* Hidden by default */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
-
+        /* Guestbook Styling */
+        .guestbook { background: #fcf8f2; padding: 30px; border-radius: 15px; border: 2px dashed var(--ocean); margin-top: 60px; }
+        .guestbook h2 { font-family: 'Lora', serif; text-align: center; margin-bottom: 15px; }
+        form { display: flex; flex-direction: column; gap: 15px; }
+        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
+        button.send-btn { background: var(--ocean); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        
+        #backToTop { position: fixed; bottom: 30px; right: 30px; background: var(--sunset); color: white; border: none; padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none; }
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
     </style>
 </head>
@@ -107,70 +48,63 @@
     </header>
 
     <div class="container">
-        <section style="text-align:center; margin-bottom: 40px;">
-            <h2>E Komo Mai</h2>
-            <p>Welcome to our family updates. Scroll down for our latest memories.</p>
-        </section>
-
         <main id="post-container" class="memory-grid">
-            <p style="text-align: center;">Loading our latest memories...</p>
+            <p style="text-align: center;">Loading memories...</p>
         </main>
+
+        <section class="guestbook">
+            <h2>Guestbook</h2>
+            <p style="text-align: center; margin-bottom: 20px;">Leave a message for the ohana!</p>
+            <form id="guestbook-form">
+                <input type="text" placeholder="Your Name" required>
+                <textarea rows="3" placeholder="Write your aloha here..." required></textarea>
+                <button type="submit" class="send-btn">Send Message</button>
+            </form>
+            <div id="status" style="display:none; text-align:center; color: var(--ocean); margin-top:15px;">Mahalo! Your message was sent.</div>
+        </section>
     </div>
 
-    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑ Back to Top</button>
-
-    <footer>
-        <p>Made with &hearts; &bull; The Ohana Updates</p>
-    </footer>
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+    <footer><p>Made with &hearts; &bull; The Ohana Updates</p></footer>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
-        // --- 1. USER CONFIGURATION ---
-        const username = 'rageaholic82'; // Change this
-        const repo = 'The-Haque-Herald';           // Change this
+        // --- USER CONFIGURATION ---
+        const username = 'rageaholic82'; 
+        const repo = 'The-Haque-Herald';
         const folder = 'posts';
 
-        // --- 2. THE POST LOADER ---
-        async function loadAllPosts() {
+        async function loadPosts() {
             const container = document.getElementById('post-container');
-            const apiUrl = `https://api.github.com/repos/${username}/${repo}/contents/${folder}`;
-
             try {
-                const response = await fetch(apiUrl);
+                const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${folder}`);
                 const files = await response.json();
                 container.innerHTML = '';
-
-                // Load all .md files
                 for (const file of files) {
                     if (file.name.endsWith('.md')) {
-                        const postResponse = await fetch(file.download_url);
-                        const markdownText = await postResponse.text();
-                        
-                        const article = document.createElement('article');
-                        article.className = 'card';
-                        article.innerHTML = marked.parse(markdownText);
-                        
-                        // Prepends to keep newest at the top
-                        container.prepend(article);
+                        const res = await fetch(file.download_url);
+                        const md = await res.text();
+                        const art = document.createElement('article');
+                        art.className = 'card';
+                        art.innerHTML = marked.parse(md);
+                        container.prepend(art);
                     }
                 }
-            } catch (err) {
-                console.error("Error fetching posts:", err);
-                container.innerHTML = "<p>Welcome! Add your first .md file to the /posts folder to begin.</p>";
-            }
+            } catch (e) { container.innerHTML = "<p>Ready for your first post!</p>"; }
         }
 
-        // --- 3. BACK TO TOP VISIBILITY ---
-        window.onscroll = function() {
-            let btn = document.getElementById("backToTop");
-            if (document.documentElement.scrollTop > 300) {
-                btn.style.display = "block";
-            } else {
-                btn.style.display = "none";
-            }
+        // Guestbook logic
+        document.getElementById('guestbook-form').onsubmit = e => {
+            e.preventDefault();
+            document.getElementById('guestbook-form').style.display = 'none';
+            document.getElementById('status').style.display = 'block';
         };
 
-        loadAllPosts();
+        window.onscroll = () => {
+            document.getElementById("backToTop").style.display = window.scrollY > 300 ? "block" : "none";
+        };
+
+        loadPosts();
     </script>
 </body>
 </html>
