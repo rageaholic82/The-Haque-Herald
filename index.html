@@ -33,6 +33,43 @@
         form { display: flex; flex-direction: column; gap: 15px; }
         input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
         button.send-btn { background: var(--ocean); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+
+        
+        /* New CSS for Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Creates responsive columns */
+            gap: 20px; /* Space between grid items */
+            margin: 30px 0;
+        }
+        
+        .grid-item {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden; /* Ensures image corners are rounded */
+            box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+            display: flex; /* For caption positioning */
+            flex-direction: column; /* Image on top, caption below */
+        }
+        
+        .grid-item img {
+            width: 100%;
+            height: 200px; /* Fixed height for consistent grid look */
+            object-fit: cover; /* Crops image to fit without distortion */
+            border-radius: 0; /* Override general img radius, let .grid-item handle it */
+            margin: 0; /* Remove default margin */
+        }
+        
+        .grid-caption {
+            padding: 15px;
+            text-align: center;
+            font-size: 0.9em;
+            color: var(--warm-black);
+            flex-grow: 1; /* Allows caption to fill space if images are different heights */
+            display: flex; /* For vertical centering if needed */
+            align-items: center; /* Vertically center caption */
+            justify-content: center; /* Horizontally center caption */
+        }
         
         #backToTop { position: fixed; bottom: 30px; right: 30px; background: var(--sunset); color: white; border: none; padding: 10px 15px; border-radius: 50px; cursor: pointer; display: none; }
         footer { text-align: center; padding: 40px; color: #888; font-size: 0.9rem; }
