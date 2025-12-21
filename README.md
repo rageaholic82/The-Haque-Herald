@@ -19,8 +19,10 @@
 * `## Subtitle` (Medium)
 * `**Text**` (Bold)
 * `* Item` (Bullet point)
+* `* Item *` (Italic)
 
 ### 5. Editing Made Easy
 * Press the **period key (.)** on the main repo page to open the visual editor.
 
 * Use `Ctrl + Shift + V` to preview your post while writing.
+
