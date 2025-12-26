@@ -95,7 +95,7 @@
             <form id="guestbook-form" action="https://formspree.io/f/maqyyeev" method="POST">
                 <input type="text" placeholder="Your Name" required>
                 <textarea rows="3" placeholder="Write your aloha here..." required></textarea>
-                <input type="text" name="secret" placeholder="What state do we live in?" required>
+                <input type="text" id="secret-field" name="secret_answer" placeholder="What state do we live in?" data-answer="Hawaii" required>
                 <button type="submit" class="send-btn">Send Message</button>
             </form>
             <div id="status" style="display:none; text-align:center; color: var(--ocean); margin-top:15px;">Mahalo! Your message was sent.</div>
@@ -131,11 +131,38 @@
             } catch (e) { container.innerHTML = "<p>Ready for your first post!</p>"; }
         }
 
-        // Guestbook logic
-        document.getElementById('guestbook-form').onsubmit = e => {
-            e.preventDefault();
-            document.getElementById('guestbook-form').style.display = 'none';
-            document.getElementById('status').style.display = 'block';
+        // --- UPDATED GUESTBOOK LOGIC (WITH GATEKEEPER) ---
+        const form = document.getElementById('guestbook-form');
+        const status = document.getElementById('status');
+        const secretField = document.getElementById('secret-field'); // New line: finds the secret box
+        
+        form.onsubmit = async (e) => {
+            e.preventDefault(); // Stops the page from refreshing
+        
+            // 1. THE GATEKEEPER CHECK
+            const userAnswer = secretField.value.trim().toLowerCase();
+            const correctAnswer = secretField.getAttribute('data-answer').toLowerCase();
+        
+            if (userAnswer !== correctAnswer) {
+                alert("Close! But that's not quite what we were looking for. Try again!");
+                secretField.value = ""; // Clears the wrong answer
+                return; // STOPS the form here so no email is sent
+            }
+        
+            // 2. IF THE ANSWER IS CORRECT, SEND TO FORMSPREE
+            const data = new FormData(form);
+            const response = await fetch(form.action, {
+                method: 'POST',
+                body: data,
+                headers: { 'Accept': 'application/json' }
+            });
+        
+            if (response.ok) {
+                form.style.display = 'none';   // Hides the form
+                status.style.display = 'block'; // Shows the "Mahalo" message
+            } else {
+                alert("Oops! There was a problem sending your message.");
+            }
         };
 
         window.onscroll = () => {
