@@ -6,17 +6,17 @@ Here's a quick picture dump of some of the highlights from our last few months i
 
   <div class="grid-item">
     <img src="images/picture2.jpg" alt="A group photo at Natasha's company picnic">
-    <p class="grid-caption">Natasha's last company picnic with Conti/Vitesco/Schaeffler with some of her closest coworkers</p>
+    <p class="grid-caption">Natasha's last company picnic with some of her closest coworkers at Conti/Vitesco/Schaeffler</p>
   </div>
 
   <div class="grid-item">
     <img src="images/vacation-hike.jpg" alt="Aria with her best friends on her 13th birthday">
-    <p class="grid-caption">Aria with her best friends on her 13th birthday at The Drake.</p>
+    <p class="grid-caption">Aria with her best friends on her 13th birthday at The Drake</p>
   </div>
 
   <div class="grid-item">
     <img src="images/grandma-smile.jpg" alt="Family photo at home before the Cubs game">
-    <p class="grid-caption">The kids' first (and, for now, last) Cubs game!</p>
+    <p class="grid-caption">The kids' first (and, for now, last) Cubs game</p>
   </div>
 
   <div class="grid-item">
