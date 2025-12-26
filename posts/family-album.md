@@ -1,29 +1,29 @@
 # Our Summer Photo Album
 
-This summer was filled with so much joy and sunshine! Here are some of our favorite moments from our adventures.
+Here's a quick picture dump of some of the highlights from our last few months in Chicago.
 
 <div class="image-grid">
 
   <div class="grid-item">
-    <img src="images/picture2.jpg" alt="Family playing on the beach at sunset">
-    <p class="grid-caption">Sunset beach fun! The kids loved building sandcastles here.</p>
+    <img src="images/picture2.jpg" alt="A group photo at Natasha's company picnic">
+    <p class="grid-caption">Natasha's last company picnic with Conti/Vitesco/Scheffler with some of her closest coworkers</p>
   </div>
 
   <div class="grid-item">
-    <img src="images/vacation-hike.jpg" alt="Hiking trail with lush green trees">
-    <p class="grid-caption">Exploring the beautiful trails near our cabin.</p>
+    <img src="images/vacation-hike.jpg" alt="Aria with her best friends on her 13th birthday">
+    <p class="grid-caption">Aria with her best friends on her 13th birthday at The Drake.</p>
   </div>
 
   <div class="grid-item">
-    <img src="images/grandma-smile.jpg" alt="Grandma smiling at the camera">
-    <p class="grid-caption">Grandma's visit was the highlight of the season!</p>
+    <img src="images/grandma-smile.jpg" alt="Family photo at home before the Cubs game">
+    <p class="grid-caption">The kids' first (and, for now, last) Cubs game!</p>
   </div>
 
   <div class="grid-item">
-    <img src="images/luau-dinner.jpg" alt="Delicious luau feast with family">
-    <p class="grid-caption">Enjoying a traditional luau dinner with the whole family.</p>
+    <img src="images/luau-dinner.jpg" alt="Random family photo on the 4th of July">
+    <p class="grid-caption">Fourth of July block party at Anna and Eric's</p>
   </div>
 
 </div>
 
-We hope you enjoyed this peek into our summer memories. Looking forward to making more!
+We'll heave some more random summer memories your way once we go through our plethora of pictures!
