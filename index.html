@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="robots" content="noindex, nofollow">
+    
     <title>Our Ohana Updates | 2025 Year in Review</title>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600&family=Lora:italic,wght@0,400;1,700&display=swap" rel="stylesheet">
+    
     <style>
         :root {
             --sand: #e3f7fd; --ocean: #2a9d8f; --sunset: #e76f51;
@@ -14,6 +16,12 @@
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { font-family: 'Quicksand', sans-serif; background-color: var(--sand); color: var(--warm-black); line-height: 1.6; }
         
+        /* Password Gate Styling */
+        #password-gate {
+            display: flex; flex-direction: column; align-items: center; justify-content: center; 
+            height: 100vh; text-align: center; padding: 20px;
+        }
+
         header {
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.4)), url('images/ohana-1b.jpg');
             background-size: cover; background-position: center; height: 50vh;
@@ -24,7 +32,7 @@
         .container { max-width: 900px; margin: -40px auto 50px; background: var(--white); padding: 40px; border-radius: 20px; box-shadow: 0 15px 35px rgba(38, 70, 83, 0.1); }
         
         .memory-grid { display: flex; flex-direction: column; gap: 40px; margin: 30px 0; }
-        .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #f1f1f1; }
+        .card { background: #fff; padding: 25px; border-radius: 12px; border: 1px solid #f1f1f1; width: 100%; }
         .card img, .card video { width: 100%; border-radius: 8px; margin: 15px 0; }
         .card h1 { font-family: 'Lora', serif; color: var(--ocean); }
 
@@ -32,8 +40,9 @@
         .guestbook { background: #fcf8f2; padding: 30px; border-radius: 15px; border: 2px dashed var(--ocean); margin-top: 60px; }
         .guestbook h2 { font-family: 'Lora', serif; text-align: center; margin-bottom: 15px; }
         form { display: flex; flex-direction: column; gap: 15px; }
-        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; }
-        button.send-btn { background: var(--ocean); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; }
+        input, textarea { padding: 12px; border: 1px solid #ddd; border-radius: 8px; font-family: inherit; width: 100%; }
+        button.send-btn { background: var(--ocean); color: white; padding: 15px; border: none; border-radius: 8px; font-weight: 600; cursor: pointer; transition: 0.3s; }
+        button.send-btn:hover { background: var(--warm-black); }
 
         /* Image Grid CSS */
         .image-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin: 30px 0; }
@@ -47,49 +56,95 @@
 </head>
 <body>
 
-    <header>
-        <div class="hero-text">
-            <h1>Aloha from the Haque Family</h1>
-            <h2>Memories, Milestones, and Musings</h2>
+    <div id="password-gate">
+        <div class="card" style="max-width: 450px; box-shadow: 0 10px 25px rgba(0,0,0,0.1);">
+            <h2 style="font-family: 'Lora', serif; margin-bottom: 15px;">Haque Family Portal</h2>
+            <p style="margin-bottom: 20px; font-size: 0.95rem;">Please enter our family password to view our 2025 memories.</p>
+            <input type="password" id="gate-password" placeholder="Enter Password" onkeypress="if(event.key==='Enter') checkGate()">
+            <button onclick="checkGate()" class="send-btn" style="width: 100%; margin-top: 10px;">Enter</button>
+            <p id="gate-error" style="color: var(--sunset); margin-top: 15px; display: none; font-weight: 600;">Incorrect password. Please try again!</p>
         </div>
-    </header>
-
-    <div class="container">
-        <main id="post-container" class="memory-grid">
-            <p style="text-align: center;">Loading memories...</p>
-        </main>
-
-        <section class="guestbook">
-            <h2>Guestbook</h2>
-            <p style="text-align: center; margin-bottom: 20px;">Leave a message for the ohana!</p>
-            <form id="guestbook-form" action="https://formspree.io/f/maqyyeev" method="POST">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email Address" required>
-                <textarea name="message" rows="3" placeholder="Write your aloha here..." required></textarea>
-                <input type="text" id="secret-field" name="secret_answer" placeholder="What state do we live in?" data-answer="Hawaii" required>
-                <input type="hidden" name="_subject" value="New Ohana Guestbook Message!">
-                <button type="submit" class="send-btn">Send Message</button>
-            </form>
-            <div id="status" style="display:none; text-align:center; color: var(--ocean); margin-top:15px; font-weight: bold;">Mahalo! Your message was sent.</div>
-        </section>
     </div>
 
-    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
-    <footer><p>Made with &hearts; &bull; The Haque Family Updates</p></footer>
+    <div id="main-content" style="display: none;">
+        <header>
+            <div class="hero-text">
+                <h1>Aloha from the Haque Family</h1>
+                <h2>Memories, Milestones, and Musings</h2>
+            </div>
+        </header>
+
+        <div class="container">
+            <main id="post-container" class="memory-grid">
+                <p style="text-align: center;">Loading memories...</p>
+            </main>
+
+            <section class="guestbook">
+                <h2>Guestbook</h2>
+                <p style="text-align: center; margin-bottom: 20px;">Leave a message for the ohana!</p>
+                <form id="guestbook-form" action="https://formspree.io/f/maqyyeev" method="POST">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email Address (for replies)" required>
+                    <textarea name="message" rows="3" placeholder="Write your aloha here..." required></textarea>
+                    
+                    <p style="font-size: 0.85rem; margin-bottom: -5px; color: var(--ocean);">Security Question:</p>
+                    <input type="text" id="secret-field" name="secret_answer" placeholder="What state do we live in?" data-answer="Hawaii" required>
+                    
+                    <input type="hidden" name="_subject" value="New Ohana Guestbook Message!">
+                    <button type="submit" class="send-btn">Send Message</button>
+                </form>
+                <div id="status" style="display:none; text-align:center; color: var(--ocean); margin-top:15px; font-weight: bold;">Mahalo! Your message was sent.</div>
+            </section>
+        </div>
+
+        <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})">↑</button>
+        
+        <footer>
+            <p>Made with &hearts; &bull; The Haque Family Updates</p>
+            <button onclick="logOut()" style="background: none; border: none; color: var(--ocean); text-decoration: underline; cursor: pointer; font-family: inherit; margin-top: 15px; font-size: 0.8rem;">
+                Log Out (Secure this device)
+            </button>
+        </footer>
+    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
     <script>
+        // --- CONFIGURATION ---
         const username = 'rageaholic82'; 
         const repo = 'The-Haque-Herald';
         const folder = 'posts';
+        const GATE_PASSWORD = "Hawaii"; // THIS IS YOUR MAIN GATE PASSWORD
 
+        // --- PASSWORD GATE LOGIC ---
+        function checkGate() {
+            const entered = document.getElementById('gate-password').value;
+            if (entered.toLowerCase() === GATE_PASSWORD.toLowerCase()) {
+                localStorage.setItem('ohana_access', 'granted');
+                showContent();
+            } else {
+                document.getElementById('gate-error').style.display = 'block';
+                document.getElementById('gate-password').value = '';
+            }
+        }
+
+        function showContent() {
+            document.getElementById('password-gate').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+            loadPosts(); // Only loads data after access is granted
+        }
+
+        function logOut() {
+            localStorage.removeItem('ohana_access');
+            window.location.reload();
+        }
+
+        // --- POST LOADER ---
         async function loadPosts() {
             const container = document.getElementById('post-container');
             try {
                 const response = await fetch(`https://api.github.com/repos/${username}/${repo}/contents/${folder}`);
                 const files = await response.json();
                 container.innerHTML = '';
-                // Sorting files by name descending to keep latest posts on top
                 files.sort((a, b) => b.name.localeCompare(a.name));
                 for (const file of files) {
                     if (file.name.endsWith('.md')) {
@@ -104,6 +159,7 @@
             } catch (e) { container.innerHTML = "<p>Welcome! Add a .md file to the /posts folder to get started.</p>"; }
         }
 
+        // --- GUESTBOOK LOGIC ---
         const form = document.getElementById('guestbook-form');
         const status = document.getElementById('status');
         const secretField = document.getElementById('secret-field'); 
@@ -135,11 +191,17 @@
             }
         };
 
+        // Scroll to Top Button
         window.onscroll = () => {
             document.getElementById("backToTop").style.display = window.scrollY > 300 ? "block" : "none";
         };
 
-        loadPosts();
+        // Check Access on Load
+        window.onload = () => {
+            if (localStorage.getItem('ohana_access') === 'granted') {
+                showContent();
+            }
+        };
     </script>
 </body>
 </html>
